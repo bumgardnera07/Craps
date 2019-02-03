@@ -1,0 +1,14 @@
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\CrapsTests.dll
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\CrapsTests.pdb
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\obj\Debug\CrapsTests.csprojAssemblyReference.cache
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\obj\Debug\CrapsTests.csproj.CoreCompileInputs.cache
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\obj\Debug\CrapsTests.csproj.CopyComplete
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\obj\Debug\CrapsTests.dll
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\CrapsTests\obj\Debug\CrapsTests.pdb

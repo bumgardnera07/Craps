@@ -1,0 +1,14 @@
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\bin\Debug\Craps.mdf
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\bin\Debug\Craps_log.ldf
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\bin\Debug\Craps.exe.config
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\bin\Debug\Craps.exe
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\bin\Debug\Craps.pdb
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.FormConfirm.resources
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.FormMainPage.resources
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.FormUpdateName.resources
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.Properties.Resources.resources
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.csproj.GenerateResource.cache
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.csproj.CoreCompileInputs.cache
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.exe
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.pdb
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.csprojAssemblyReference.cache

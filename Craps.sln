@@ -5,6 +5,13 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Craps", "Craps\Craps.csproj", "{BC68192E-F2C9-47F5-8371-9715BCB3609B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrapsTests", "CrapsTests\CrapsTests.csproj", "{872EBD69-DC53-4BD8-A21C-F3C9870A26B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E8A5854-2960-42A9-BDBF-A4D0AA49C0C5}"
+	ProjectSection(SolutionItems) = preProject
+		Icon1.ico = Icon1.ico
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{BC68192E-F2C9-47F5-8371-9715BCB3609B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC68192E-F2C9-47F5-8371-9715BCB3609B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC68192E-F2C9-47F5-8371-9715BCB3609B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872EBD69-DC53-4BD8-A21C-F3C9870A26B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872EBD69-DC53-4BD8-A21C-F3C9870A26B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872EBD69-DC53-4BD8-A21C-F3C9870A26B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872EBD69-DC53-4BD8-A21C-F3C9870A26B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

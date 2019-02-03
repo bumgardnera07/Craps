@@ -1,0 +1,26 @@
+
+welcome to Craps:
+>> Enter your name or select a player from the list.
+-> Quit
+
+Player Menu:
+ >> Displays History of Game Stats
+ -> Play Craps
+ -> Change Player
+ -> Edit Name >> Welcome %Player%
+ -> Clear History, with warning >> Welcome %Player%
+ -> Clear Profile, with warning >> Change Player
+
+Change Player
+  >> Enter your name or select a player from the list. 
+  -> Quit
+
+Play Craps
+ >> Displays Dice Rolls, win/ lose condition, number of rolls, encouraging message, win/lose 
+ -> Roll Dice/ Play Again >> Play Craps
+ -> Player Menu
+ -> Change Player
+ -> Quit
+
+
+
