@@ -100,7 +100,11 @@
             this.gbWelcomeScreen.Controls.Add(this.lblChooseName);
             this.gbWelcomeScreen.Controls.Add(this.lblEnterName);
             this.gbWelcomeScreen.Location = new System.Drawing.Point(0, 0);
+            this.gbWelcomeScreen.Margin = new System.Windows.Forms.Padding(1);
+            this.gbWelcomeScreen.MaximumSize = new System.Drawing.Size(315, 546);
+            this.gbWelcomeScreen.MinimumSize = new System.Drawing.Size(315, 546);
             this.gbWelcomeScreen.Name = "gbWelcomeScreen";
+            this.gbWelcomeScreen.Padding = new System.Windows.Forms.Padding(1);
             this.gbWelcomeScreen.Size = new System.Drawing.Size(315, 546);
             this.gbWelcomeScreen.TabIndex = 1;
             this.gbWelcomeScreen.TabStop = false;
@@ -156,7 +160,7 @@
             this.lblOR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOR.AutoSize = true;
             this.lblOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOR.Location = new System.Drawing.Point(126, 212);
+            this.lblOR.Location = new System.Drawing.Point(124, 212);
             this.lblOR.Name = "lblOR";
             this.lblOR.Size = new System.Drawing.Size(43, 20);
             this.lblOR.TabIndex = 11;
@@ -164,11 +168,12 @@
             // 
             // WelcomeTitle
             // 
-            this.WelcomeTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.WelcomeTitle.Font = new System.Drawing.Font("Garamond", 38F, System.Drawing.FontStyle.Bold);
-            this.WelcomeTitle.Location = new System.Drawing.Point(3, 16);
+            this.WelcomeTitle.Location = new System.Drawing.Point(9, 14);
+            this.WelcomeTitle.MaximumSize = new System.Drawing.Size(296, 142);
+            this.WelcomeTitle.MinimumSize = new System.Drawing.Size(296, 142);
             this.WelcomeTitle.Name = "WelcomeTitle";
-            this.WelcomeTitle.Size = new System.Drawing.Size(309, 142);
+            this.WelcomeTitle.Size = new System.Drawing.Size(296, 142);
             this.WelcomeTitle.TabIndex = 0;
             this.WelcomeTitle.Text = "Welcome to Craps!";
             this.WelcomeTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -184,7 +189,7 @@
             // lblChooseName
             // 
             this.lblChooseName.AutoSize = true;
-            this.lblChooseName.Location = new System.Drawing.Point(13, 245);
+            this.lblChooseName.Location = new System.Drawing.Point(11, 243);
             this.lblChooseName.Name = "lblChooseName";
             this.lblChooseName.Size = new System.Drawing.Size(106, 13);
             this.lblChooseName.TabIndex = 13;
@@ -193,7 +198,7 @@
             // lblEnterName
             // 
             this.lblEnterName.AutoSize = true;
-            this.lblEnterName.Location = new System.Drawing.Point(6, 159);
+            this.lblEnterName.Location = new System.Drawing.Point(4, 157);
             this.lblEnterName.Name = "lblEnterName";
             this.lblEnterName.Size = new System.Drawing.Size(87, 13);
             this.lblEnterName.TabIndex = 12;
@@ -209,10 +214,11 @@
             this.gbPlayerMenu.Controls.Add(this.btnUpdateName);
             this.gbPlayerMenu.Enabled = false;
             this.gbPlayerMenu.Location = new System.Drawing.Point(323, 0);
-            this.gbPlayerMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.gbPlayerMenu.Margin = new System.Windows.Forms.Padding(1);
             this.gbPlayerMenu.MaximumSize = new System.Drawing.Size(668, 158);
             this.gbPlayerMenu.MinimumSize = new System.Drawing.Size(668, 158);
             this.gbPlayerMenu.Name = "gbPlayerMenu";
+            this.gbPlayerMenu.Padding = new System.Windows.Forms.Padding(1);
             this.gbPlayerMenu.Size = new System.Drawing.Size(668, 158);
             this.gbPlayerMenu.TabIndex = 2;
             this.gbPlayerMenu.TabStop = false;
@@ -227,6 +233,7 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GameNo,
@@ -237,7 +244,7 @@
             this.die1DataGridViewTextBoxColumn,
             this.die2DataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.rollHistBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(117, 16);
+            this.dataGridView1.Location = new System.Drawing.Point(117, 14);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(1);
             this.dataGridView1.MaximumSize = new System.Drawing.Size(543, 125);
             this.dataGridView1.MinimumSize = new System.Drawing.Size(543, 125);
@@ -314,7 +321,7 @@
             // btnChangePlayer
             // 
             this.btnChangePlayer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnChangePlayer.Location = new System.Drawing.Point(6, 23);
+            this.btnChangePlayer.Location = new System.Drawing.Point(6, 21);
             this.btnChangePlayer.Name = "btnChangePlayer";
             this.btnChangePlayer.Size = new System.Drawing.Size(105, 24);
             this.btnChangePlayer.TabIndex = 4;
@@ -325,7 +332,7 @@
             // btnClearHistory
             // 
             this.btnClearHistory.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnClearHistory.Location = new System.Drawing.Point(6, 83);
+            this.btnClearHistory.Location = new System.Drawing.Point(6, 81);
             this.btnClearHistory.Name = "btnClearHistory";
             this.btnClearHistory.Size = new System.Drawing.Size(105, 24);
             this.btnClearHistory.TabIndex = 6;
@@ -336,7 +343,7 @@
             // btnDeletePlayer
             // 
             this.btnDeletePlayer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnDeletePlayer.Location = new System.Drawing.Point(6, 113);
+            this.btnDeletePlayer.Location = new System.Drawing.Point(6, 111);
             this.btnDeletePlayer.Name = "btnDeletePlayer";
             this.btnDeletePlayer.Size = new System.Drawing.Size(105, 24);
             this.btnDeletePlayer.TabIndex = 7;
@@ -347,7 +354,7 @@
             // btnUpdateName
             // 
             this.btnUpdateName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnUpdateName.Location = new System.Drawing.Point(6, 53);
+            this.btnUpdateName.Location = new System.Drawing.Point(6, 51);
             this.btnUpdateName.Name = "btnUpdateName";
             this.btnUpdateName.Size = new System.Drawing.Size(105, 24);
             this.btnUpdateName.TabIndex = 5;
@@ -357,7 +364,6 @@
             // 
             // gbPlayMenu
             // 
-            this.gbPlayMenu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.gbPlayMenu.Controls.Add(this.lblLossValue);
             this.gbPlayMenu.Controls.Add(this.lblWinValue);
             this.gbPlayMenu.Controls.Add(this.lblDieTotalValue);
@@ -371,11 +377,12 @@
             this.gbPlayMenu.Controls.Add(this.lblRollDie1);
             this.gbPlayMenu.Controls.Add(this.btnRollDice);
             this.gbPlayMenu.Enabled = false;
-            this.gbPlayMenu.Location = new System.Drawing.Point(323, 164);
-            this.gbPlayMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.gbPlayMenu.Location = new System.Drawing.Point(323, 163);
+            this.gbPlayMenu.Margin = new System.Windows.Forms.Padding(1);
             this.gbPlayMenu.MaximumSize = new System.Drawing.Size(670, 421);
             this.gbPlayMenu.MinimumSize = new System.Drawing.Size(670, 421);
             this.gbPlayMenu.Name = "gbPlayMenu";
+            this.gbPlayMenu.Padding = new System.Windows.Forms.Padding(1);
             this.gbPlayMenu.Size = new System.Drawing.Size(670, 421);
             this.gbPlayMenu.TabIndex = 3;
             this.gbPlayMenu.TabStop = false;
@@ -386,7 +393,7 @@
             // 
             this.lblLossValue.AutoSize = true;
             this.lblLossValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLossValue.Location = new System.Drawing.Point(430, 319);
+            this.lblLossValue.Location = new System.Drawing.Point(428, 317);
             this.lblLossValue.Name = "lblLossValue";
             this.lblLossValue.Size = new System.Drawing.Size(162, 31);
             this.lblLossValue.TabIndex = 11;
@@ -396,7 +403,7 @@
             // 
             this.lblWinValue.AutoSize = true;
             this.lblWinValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinValue.Location = new System.Drawing.Point(430, 206);
+            this.lblWinValue.Location = new System.Drawing.Point(428, 204);
             this.lblWinValue.Name = "lblWinValue";
             this.lblWinValue.Size = new System.Drawing.Size(104, 31);
             this.lblWinValue.TabIndex = 10;
@@ -406,7 +413,7 @@
             // 
             this.lblDieTotalValue.AutoSize = true;
             this.lblDieTotalValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDieTotalValue.Location = new System.Drawing.Point(573, 69);
+            this.lblDieTotalValue.Location = new System.Drawing.Point(571, 67);
             this.lblDieTotalValue.Name = "lblDieTotalValue";
             this.lblDieTotalValue.Size = new System.Drawing.Size(30, 31);
             this.lblDieTotalValue.TabIndex = 9;
@@ -417,7 +424,7 @@
             // 
             this.lblDie2Value.AutoSize = true;
             this.lblDie2Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDie2Value.Location = new System.Drawing.Point(441, 70);
+            this.lblDie2Value.Location = new System.Drawing.Point(439, 68);
             this.lblDie2Value.Name = "lblDie2Value";
             this.lblDie2Value.Size = new System.Drawing.Size(30, 31);
             this.lblDie2Value.TabIndex = 8;
@@ -428,7 +435,7 @@
             // 
             this.lblDie1Value.AutoSize = true;
             this.lblDie1Value.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDie1Value.Location = new System.Drawing.Point(312, 70);
+            this.lblDie1Value.Location = new System.Drawing.Point(310, 68);
             this.lblDie1Value.Name = "lblDie1Value";
             this.lblDie1Value.Size = new System.Drawing.Size(30, 31);
             this.lblDie1Value.TabIndex = 7;
@@ -439,7 +446,7 @@
             // 
             this.lblOutcome.AutoSize = true;
             this.lblOutcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOutcome.Location = new System.Drawing.Point(6, 157);
+            this.lblOutcome.Location = new System.Drawing.Point(4, 155);
             this.lblOutcome.Name = "lblOutcome";
             this.lblOutcome.Size = new System.Drawing.Size(163, 31);
             this.lblOutcome.TabIndex = 6;
@@ -450,7 +457,7 @@
             // 
             this.lblRollTotal.AutoSize = true;
             this.lblRollTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblRollTotal.Location = new System.Drawing.Point(497, 80);
+            this.lblRollTotal.Location = new System.Drawing.Point(495, 78);
             this.lblRollTotal.Name = "lblRollTotal";
             this.lblRollTotal.Size = new System.Drawing.Size(48, 20);
             this.lblRollTotal.TabIndex = 5;
@@ -461,7 +468,7 @@
             // 
             this.lblLoseCondition.AutoSize = true;
             this.lblLoseCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lblLoseCondition.Location = new System.Drawing.Point(176, 321);
+            this.lblLoseCondition.Location = new System.Drawing.Point(174, 319);
             this.lblLoseCondition.Name = "lblLoseCondition";
             this.lblLoseCondition.Size = new System.Drawing.Size(216, 29);
             this.lblLoseCondition.TabIndex = 4;
@@ -471,7 +478,7 @@
             // 
             this.lblWinCondition.AutoSize = true;
             this.lblWinCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lblWinCondition.Location = new System.Drawing.Point(176, 209);
+            this.lblWinCondition.Location = new System.Drawing.Point(174, 207);
             this.lblWinCondition.Name = "lblWinCondition";
             this.lblWinCondition.Size = new System.Drawing.Size(138, 29);
             this.lblWinCondition.TabIndex = 3;
@@ -481,7 +488,7 @@
             // 
             this.lblRollDie2.AutoSize = true;
             this.lblRollDie2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblRollDie2.Location = new System.Drawing.Point(367, 80);
+            this.lblRollDie2.Location = new System.Drawing.Point(365, 78);
             this.lblRollDie2.Name = "lblRollDie2";
             this.lblRollDie2.Size = new System.Drawing.Size(42, 20);
             this.lblRollDie2.TabIndex = 2;
@@ -492,7 +499,7 @@
             // 
             this.lblRollDie1.AutoSize = true;
             this.lblRollDie1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblRollDie1.Location = new System.Drawing.Point(212, 80);
+            this.lblRollDie1.Location = new System.Drawing.Point(210, 78);
             this.lblRollDie1.Name = "lblRollDie1";
             this.lblRollDie1.Size = new System.Drawing.Size(84, 20);
             this.lblRollDie1.TabIndex = 1;
@@ -560,6 +567,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.CancelButton = this.btnQuit;
             this.ClientSize = new System.Drawing.Size(1003, 592);
             this.ControlBox = false;
@@ -590,20 +598,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox gbWelcomeScreen;
         private System.Windows.Forms.Label WelcomeTitle;
-        private CrapsDataSet crapsDataSet;
-        private CrapsDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private CrapsDataSetTableAdapters.GameTableAdapter gameTableAdapter;
-        private CrapsDataSetTableAdapters.UserTableAdapter userTableAdapter;
         private System.Windows.Forms.Button Exit;
-        private System.Windows.Forms.GroupBox gbPlayerMenu;
-        private System.Windows.Forms.GroupBox gbPlayMenu;
-        private System.Windows.Forms.ListBox lsboxChooseName;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Label lblOR;
-        private System.Windows.Forms.TextBox txtAddName;
         private System.Windows.Forms.Label lblChooseName;
         private System.Windows.Forms.Label lblEnterName;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -614,27 +612,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn timeDataGridViewImageColumn;
-        private System.Windows.Forms.BindingSource rollHistBindingSource;
-        private CrapsDataSetTableAdapters.RollHistTableAdapter rollHistTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource crapsDataSetBindingSource;
-        private System.Windows.Forms.Label lblRollDie2;
-        private System.Windows.Forms.Label lblRollDie1;
-        private System.Windows.Forms.Button btnRollDice;
-        private System.Windows.Forms.Label lblDie1Value;
-        private System.Windows.Forms.Label lblOutcome;
-        private System.Windows.Forms.Label lblRollTotal;
         private System.Windows.Forms.Label lblLoseCondition;
         private System.Windows.Forms.Label lblWinCondition;
-        private System.Windows.Forms.Label lblLossValue;
-        private System.Windows.Forms.Label lblWinValue;
-        private System.Windows.Forms.Label lblDieTotalValue;
-        private System.Windows.Forms.Label lblDie2Value;
-        private System.Windows.Forms.BindingSource userBindingSource;
-        private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.BindingSource rollBindingSource;
-        private CrapsDataSetTableAdapters.RollTableAdapter rollTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn GameNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -642,6 +623,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn die1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn die2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource gameBindingSource;
+        internal CrapsDataSet crapsDataSet;
+        internal CrapsDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        internal CrapsDataSetTableAdapters.GameTableAdapter gameTableAdapter;
+        internal CrapsDataSetTableAdapters.UserTableAdapter userTableAdapter;
+        internal System.Windows.Forms.BindingSource rollHistBindingSource;
+        internal CrapsDataSetTableAdapters.RollHistTableAdapter rollHistTableAdapter;
+        internal System.Windows.Forms.BindingSource crapsDataSetBindingSource;
+        internal System.Windows.Forms.BindingSource userBindingSource;
+        internal System.Windows.Forms.BindingSource rollBindingSource;
+        internal CrapsDataSetTableAdapters.RollTableAdapter rollTableAdapter;
+        internal System.Windows.Forms.BindingSource gameBindingSource;
+        internal System.Windows.Forms.GroupBox gbWelcomeScreen;
+        internal System.Windows.Forms.GroupBox gbPlayerMenu;
+        internal System.Windows.Forms.GroupBox gbPlayMenu;
+        internal System.Windows.Forms.Button btnQuit;
+        internal System.Windows.Forms.ListBox lsboxChooseName;
+        internal System.Windows.Forms.TextBox txtAddName;
+        internal System.Windows.Forms.Button btnRollDice;
+        internal System.Windows.Forms.Label lblDie1Value;
+        internal System.Windows.Forms.Label lblOutcome;
+        internal System.Windows.Forms.Label lblLossValue;
+        internal System.Windows.Forms.Label lblWinValue;
+        internal System.Windows.Forms.Label lblDieTotalValue;
+        internal System.Windows.Forms.Label lblDie2Value;
+        internal System.Windows.Forms.Label lblRollDie2;
+        internal System.Windows.Forms.Label lblRollDie1;
+        internal System.Windows.Forms.Label lblRollTotal;
     }
 }

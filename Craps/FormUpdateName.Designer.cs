@@ -43,6 +43,7 @@
             // 
             // BtnAcceptNameUpdate
             // 
+            this.BtnAcceptNameUpdate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BtnAcceptNameUpdate.Location = new System.Drawing.Point(12, 54);
             this.BtnAcceptNameUpdate.Name = "BtnAcceptNameUpdate";
             this.BtnAcceptNameUpdate.Size = new System.Drawing.Size(129, 23);
@@ -134,11 +135,11 @@
 
         private System.Windows.Forms.Button BtnAcceptNameUpdate;
         private System.Windows.Forms.Button BtnCancelUpdateName;
-        private System.Windows.Forms.TextBox TextUpdateName;
         private System.Windows.Forms.Label LblUpdateName;
         private CrapsDataSet crapsDataSet;
         private System.Windows.Forms.BindingSource userBindingSource;
         private CrapsDataSetTableAdapters.UserTableAdapter userTableAdapter;
         private CrapsDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        internal System.Windows.Forms.TextBox TextUpdateName;
     }
 }

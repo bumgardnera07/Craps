@@ -16,3 +16,4 @@ C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.csproj.
 C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.csproj.CopyComplete
 C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.exe
 C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.pdb
+C:\Users\GBumgardner\Desktop\Coding Projects\Craps\Craps\obj\Debug\Craps.csprojAssemblyReference.cache

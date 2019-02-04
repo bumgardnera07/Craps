@@ -67,6 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameController.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="PlayerController.cs" />
     <Compile Include="CrapsDataSet.cs">
       <DependentUpon>CrapsDataSet.xsd</DependentUpon>
     </Compile>
@@ -75,7 +78,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrapsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Dice.cs" />
+    <Compile Include="DiceController.cs" />
     <Compile Include="FormConfirm.cs">
       <SubType>Form</SubType>
     </Compile>

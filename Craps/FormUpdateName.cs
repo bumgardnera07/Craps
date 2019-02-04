@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Craps
@@ -20,11 +12,11 @@ namespace Craps
 
         private void FormUpdateName_Load(object sender, EventArgs e)
         {
-            this.userTableAdapter.Fill(this.crapsDataSet.User);
+            userTableAdapter.Fill(crapsDataSet.User);
             TextUpdateName.Text = crapsDataSet.User.Select("Id = " + GameVariables.UserID)[0]["Name"].ToString();
         }
 
-        private void TextUpdateName_KeyDown(object sender, KeyEventArgs e)
+        private void TextUpdateName_KeyDown(object sender, KeyEventArgs e)  //lets you press enter in the text box
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -34,31 +26,12 @@ namespace Craps
 
         private void BtnAcceptNameUpdate_Click(object sender, EventArgs e)
         {
-            string userName = Craps.FormMainPage.CleanInput(TextUpdateName.Text);
-            if (crapsDataSet.User.Select("Name = '" + userName + "'").Length != 0)
-            {
-                MessageBox.Show("That player already exists.");
-            }
-            else
-            {                
-                CrapsDataSet.UserRow userRow = crapsDataSet.User.FindById(GameVariables.UserID);
-                userRow.Name = userName.ToUpper();
-                try
-                {
-                    userTableAdapter.Update(crapsDataSet);
-                }
-                catch
-                {
-                    MessageBox.Show("Insert Failed");
-                }
-                this.userTableAdapter.Fill(this.crapsDataSet.User);
-                this.Close();
-            }
+            Close();          
         }
 
         private void BtnCancelUpdateName_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void FormUpdateName_Shown(object sender, EventArgs e)
