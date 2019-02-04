@@ -32,13 +32,15 @@ namespace Craps {
         
         private GameDataTable tableGame;
         
-        private global::System.Data.DataRelation relationFK__Game__Player_ID__4BAC3F29;
-        
         private global::System.Data.DataRelation relationFK__Roll__PlayerID__5AEE82B9;
         
-        private global::System.Data.DataRelation relationFK__Roll__Game__4CA06362;
+        private global::System.Data.DataRelation relationFK__Game__Player_ID__18EBB532;
         
-        private global::System.Data.DataRelation relationFK__Game__Player_ID__4BAC3F291;
+        private global::System.Data.DataRelation relationFK__Roll__Game__3E1D39E1;
+        
+        private global::System.Data.DataRelation relationFK__Game__Player_ID__3F115E1A;
+        
+        private global::System.Data.DataRelation relationFK__Roll__Game__3E1D39E11;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -274,10 +276,11 @@ namespace Craps {
                     this.tableGame.InitVars();
                 }
             }
-            this.relationFK__Game__Player_ID__4BAC3F29 = this.Relations["FK__Game__Player ID__4BAC3F29"];
             this.relationFK__Roll__PlayerID__5AEE82B9 = this.Relations["FK__Roll__PlayerID__5AEE82B9"];
-            this.relationFK__Roll__Game__4CA06362 = this.Relations["FK__Roll__Game__4CA06362"];
-            this.relationFK__Game__Player_ID__4BAC3F291 = this.Relations["FK__Game__Player ID__4BAC3F291"];
+            this.relationFK__Game__Player_ID__18EBB532 = this.Relations["FK__Game__Player ID__18EBB532"];
+            this.relationFK__Roll__Game__3E1D39E1 = this.Relations["FK__Roll__Game__3E1D39E1"];
+            this.relationFK__Game__Player_ID__3F115E1A = this.Relations["FK__Game__Player ID__3F115E1A"];
+            this.relationFK__Roll__Game__3E1D39E11 = this.Relations["FK__Roll__Game__3E1D39E11"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -296,22 +299,26 @@ namespace Craps {
             base.Tables.Add(this.tableRollHist);
             this.tableGame = new GameDataTable();
             base.Tables.Add(this.tableGame);
-            this.relationFK__Game__Player_ID__4BAC3F29 = new global::System.Data.DataRelation("FK__Game__Player ID__4BAC3F29", new global::System.Data.DataColumn[] {
-                        this.tableUser.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRollHist.Player_IDColumn}, false);
-            this.Relations.Add(this.relationFK__Game__Player_ID__4BAC3F29);
             this.relationFK__Roll__PlayerID__5AEE82B9 = new global::System.Data.DataRelation("FK__Roll__PlayerID__5AEE82B9", new global::System.Data.DataColumn[] {
                         this.tableUser.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRoll.PlayerIDColumn}, false);
             this.Relations.Add(this.relationFK__Roll__PlayerID__5AEE82B9);
-            this.relationFK__Roll__Game__4CA06362 = new global::System.Data.DataRelation("FK__Roll__Game__4CA06362", new global::System.Data.DataColumn[] {
+            this.relationFK__Game__Player_ID__18EBB532 = new global::System.Data.DataRelation("FK__Game__Player ID__18EBB532", new global::System.Data.DataColumn[] {
+                        this.tableUser.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRollHist.Player_IDColumn}, false);
+            this.Relations.Add(this.relationFK__Game__Player_ID__18EBB532);
+            this.relationFK__Roll__Game__3E1D39E1 = new global::System.Data.DataRelation("FK__Roll__Game__3E1D39E1", new global::System.Data.DataColumn[] {
                         this.tableGame.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRoll.GameColumn}, false);
-            this.Relations.Add(this.relationFK__Roll__Game__4CA06362);
-            this.relationFK__Game__Player_ID__4BAC3F291 = new global::System.Data.DataRelation("FK__Game__Player ID__4BAC3F291", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Roll__Game__3E1D39E1);
+            this.relationFK__Game__Player_ID__3F115E1A = new global::System.Data.DataRelation("FK__Game__Player ID__3F115E1A", new global::System.Data.DataColumn[] {
                         this.tableUser.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableGame.Player_IDColumn}, false);
-            this.Relations.Add(this.relationFK__Game__Player_ID__4BAC3F291);
+            this.Relations.Add(this.relationFK__Game__Player_ID__3F115E1A);
+            this.relationFK__Roll__Game__3E1D39E11 = new global::System.Data.DataRelation("FK__Roll__Game__3E1D39E11", new global::System.Data.DataColumn[] {
+                        this.tableRollHist.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRoll.GameColumn}, false);
+            this.Relations.Add(this.relationFK__Roll__Game__3E1D39E11);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -552,7 +559,7 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RollRow AddRollRow(GameRow parentGameRowByFK__Roll__Game__4CA06362, int Die1, int Die2, int Point, int RollNum, UserRow parentUserRowByFK__Roll__PlayerID__5AEE82B9) {
+            public RollRow AddRollRow(GameRow parentGameRowByFK__Roll__Game__3E1D39E1, int Die1, int Die2, string Point, int RollNum, UserRow parentUserRowByFK__Roll__PlayerID__5AEE82B9) {
                 RollRow rowRollRow = ((RollRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -562,8 +569,8 @@ namespace Craps {
                         Point,
                         RollNum,
                         null};
-                if ((parentGameRowByFK__Roll__Game__4CA06362 != null)) {
-                    columnValuesArray[1] = parentGameRowByFK__Roll__Game__4CA06362[0];
+                if ((parentGameRowByFK__Roll__Game__3E1D39E1 != null)) {
+                    columnValuesArray[1] = parentGameRowByFK__Roll__Game__3E1D39E1[0];
                 }
                 if ((parentUserRowByFK__Roll__PlayerID__5AEE82B9 != null)) {
                     columnValuesArray[6] = parentUserRowByFK__Roll__PlayerID__5AEE82B9[0];
@@ -617,7 +624,7 @@ namespace Craps {
                 base.Columns.Add(this.columnDie1);
                 this.columnDie2 = new global::System.Data.DataColumn("Die2", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDie2);
-                this.columnPoint = new global::System.Data.DataColumn("Point", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnPoint = new global::System.Data.DataColumn("Point", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPoint);
                 this.columnRollNum = new global::System.Data.DataColumn("RollNum", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRollNum);
@@ -1047,19 +1054,23 @@ namespace Craps {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class RollHistDataTable : global::System.Data.TypedTableBase<RollHistRow> {
             
+            private global::System.Data.DataColumn columnGameNo;
+            
             private global::System.Data.DataColumn columnRollNum;
             
             private global::System.Data.DataColumn columnDie1;
             
             private global::System.Data.DataColumn columnDie2;
             
-            private global::System.Data.DataColumn columnGameNo;
+            private global::System.Data.DataColumn columnPlayer_ID;
             
             private global::System.Data.DataColumn columnResult;
             
-            private global::System.Data.DataColumn columnPlayer_ID;
+            private global::System.Data.DataColumn columnId;
             
             private global::System.Data.DataColumn columnPoint;
+            
+            private global::System.Data.DataColumn columnTotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1096,6 +1107,14 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn GameNoColumn {
+                get {
+                    return this.columnGameNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn RollNumColumn {
                 get {
                     return this.columnRollNum;
@@ -1120,9 +1139,9 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn GameNoColumn {
+            public global::System.Data.DataColumn Player_IDColumn {
                 get {
-                    return this.columnGameNo;
+                    return this.columnPlayer_ID;
                 }
             }
             
@@ -1136,9 +1155,9 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Player_IDColumn {
+            public global::System.Data.DataColumn IdColumn {
                 get {
-                    return this.columnPlayer_ID;
+                    return this.columnId;
                 }
             }
             
@@ -1147,6 +1166,14 @@ namespace Craps {
             public global::System.Data.DataColumn PointColumn {
                 get {
                     return this.columnPoint;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TotalColumn {
+                get {
+                    return this.columnTotal;
                 }
             }
             
@@ -1187,22 +1214,31 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RollHistRow AddRollHistRow(int RollNum, int Die1, int Die2, string Result, UserRow parentUserRowByFK__Game__Player_ID__4BAC3F29, byte Point) {
+            public RollHistRow AddRollHistRow(int RollNum, int Die1, int Die2, UserRow parentUserRowByFK__Game__Player_ID__18EBB532, string Result, string Point, int Total) {
                 RollHistRow rowRollHistRow = ((RollHistRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         RollNum,
                         Die1,
                         Die2,
                         null,
                         Result,
                         null,
-                        Point};
-                if ((parentUserRowByFK__Game__Player_ID__4BAC3F29 != null)) {
-                    columnValuesArray[5] = parentUserRowByFK__Game__Player_ID__4BAC3F29[0];
+                        Point,
+                        Total};
+                if ((parentUserRowByFK__Game__Player_ID__18EBB532 != null)) {
+                    columnValuesArray[4] = parentUserRowByFK__Game__Player_ID__18EBB532[0];
                 }
                 rowRollHistRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRollHistRow);
                 return rowRollHistRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public RollHistRow FindById(int Id) {
+                return ((RollHistRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1222,45 +1258,57 @@ namespace Craps {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
+                this.columnGameNo = base.Columns["GameNo"];
                 this.columnRollNum = base.Columns["RollNum"];
                 this.columnDie1 = base.Columns["Die1"];
                 this.columnDie2 = base.Columns["Die2"];
-                this.columnGameNo = base.Columns["GameNo"];
-                this.columnResult = base.Columns["Result"];
                 this.columnPlayer_ID = base.Columns["Player ID"];
+                this.columnResult = base.Columns["Result"];
+                this.columnId = base.Columns["Id"];
                 this.columnPoint = base.Columns["Point"];
+                this.columnTotal = base.Columns["Total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
+                this.columnGameNo = new global::System.Data.DataColumn("GameNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGameNo);
                 this.columnRollNum = new global::System.Data.DataColumn("RollNum", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRollNum);
                 this.columnDie1 = new global::System.Data.DataColumn("Die1", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDie1);
                 this.columnDie2 = new global::System.Data.DataColumn("Die2", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDie2);
-                this.columnGameNo = new global::System.Data.DataColumn("GameNo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGameNo);
-                this.columnResult = new global::System.Data.DataColumn("Result", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnResult);
                 this.columnPlayer_ID = new global::System.Data.DataColumn("Player ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPlayer_ID);
-                this.columnPoint = new global::System.Data.DataColumn("Point", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columnResult = new global::System.Data.DataColumn("Result", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnResult);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnPoint = new global::System.Data.DataColumn("Point", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPoint);
+                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnGameNo}, false));
-                this.columnRollNum.AllowDBNull = false;
-                this.columnDie1.AllowDBNull = false;
-                this.columnDie2.AllowDBNull = false;
+                                this.columnId}, true));
                 this.columnGameNo.AutoIncrement = true;
                 this.columnGameNo.AutoIncrementSeed = -1;
                 this.columnGameNo.AutoIncrementStep = -1;
                 this.columnGameNo.ReadOnly = true;
-                this.columnGameNo.Unique = true;
+                this.columnRollNum.AllowDBNull = false;
+                this.columnDie1.AllowDBNull = false;
+                this.columnDie2.AllowDBNull = false;
                 this.columnResult.ReadOnly = true;
-                this.columnResult.MaxLength = 4;
+                this.columnResult.MaxLength = 11;
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
                 this.columnPoint.ReadOnly = true;
+                this.columnTotal.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1514,7 +1562,7 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public GameRow AddGameRow(byte Result, byte Point, UserRow parentUserRowByFK__Game__Player_ID__4BAC3F291, byte[] Time) {
+            public GameRow AddGameRow(string Result, string Point, UserRow parentUserRowByFK__Game__Player_ID__3F115E1A, System.DateTime Time) {
                 GameRow rowGameRow = ((GameRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1522,8 +1570,8 @@ namespace Craps {
                         Point,
                         null,
                         Time};
-                if ((parentUserRowByFK__Game__Player_ID__4BAC3F291 != null)) {
-                    columnValuesArray[3] = parentUserRowByFK__Game__Player_ID__4BAC3F291[0];
+                if ((parentUserRowByFK__Game__Player_ID__3F115E1A != null)) {
+                    columnValuesArray[3] = parentUserRowByFK__Game__Player_ID__3F115E1A[0];
                 }
                 rowGameRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGameRow);
@@ -1566,13 +1614,13 @@ namespace Craps {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnResult = new global::System.Data.DataColumn("Result", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columnResult = new global::System.Data.DataColumn("Result", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnResult);
-                this.columnPoint = new global::System.Data.DataColumn("Point", typeof(byte), null, global::System.Data.MappingType.Element);
+                this.columnPoint = new global::System.Data.DataColumn("Point", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPoint);
                 this.columnPlayer_ID = new global::System.Data.DataColumn("Player ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPlayer_ID);
-                this.columnTime = new global::System.Data.DataColumn("Time", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                this.columnTime = new global::System.Data.DataColumn("Time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTime);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
@@ -1582,8 +1630,9 @@ namespace Craps {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
+                this.columnResult.MaxLength = 10;
+                this.columnPoint.MaxLength = 10;
                 this.columnPlayer_ID.AllowDBNull = false;
-                this.columnTime.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1770,10 +1819,10 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Point {
+            public string Point {
                 get {
                     try {
-                        return ((int)(this[this.tableRoll.PointColumn]));
+                        return ((string)(this[this.tableRoll.PointColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Point\' in table \'Roll\' is DBNull.", e);
@@ -1821,10 +1870,21 @@ namespace Craps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public GameRow GameRow {
                 get {
-                    return ((GameRow)(this.GetParentRow(this.Table.ParentRelations["FK__Roll__Game__4CA06362"])));
+                    return ((GameRow)(this.GetParentRow(this.Table.ParentRelations["FK__Roll__Game__3E1D39E1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Roll__Game__4CA06362"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Roll__Game__3E1D39E1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public RollHistRow RollHistRow {
+                get {
+                    return ((RollHistRow)(this.GetParentRow(this.Table.ParentRelations["FK__Roll__Game__3E1D39E11"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Roll__Game__3E1D39E11"]);
                 }
             }
             
@@ -1879,17 +1939,6 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RollHistRow[] GetRollHistRows() {
-                if ((this.Table.ChildRelations["FK__Game__Player ID__4BAC3F29"] == null)) {
-                    return new RollHistRow[0];
-                }
-                else {
-                    return ((RollHistRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Game__Player ID__4BAC3F29"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public RollRow[] GetRollRows() {
                 if ((this.Table.ChildRelations["FK__Roll__PlayerID__5AEE82B9"] == null)) {
                     return new RollRow[0];
@@ -1901,12 +1950,23 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public RollHistRow[] GetRollHistRows() {
+                if ((this.Table.ChildRelations["FK__Game__Player ID__18EBB532"] == null)) {
+                    return new RollHistRow[0];
+                }
+                else {
+                    return ((RollHistRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Game__Player ID__18EBB532"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public GameRow[] GetGameRows() {
-                if ((this.Table.ChildRelations["FK__Game__Player ID__4BAC3F291"] == null)) {
+                if ((this.Table.ChildRelations["FK__Game__Player ID__3F115E1A"] == null)) {
                     return new GameRow[0];
                 }
                 else {
-                    return ((GameRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Game__Player ID__4BAC3F291"])));
+                    return ((GameRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Game__Player ID__3F115E1A"])));
                 }
             }
         }
@@ -1923,6 +1983,22 @@ namespace Craps {
             internal RollHistRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableRollHist = ((RollHistDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int GameNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableRollHist.GameNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GameNo\' in table \'RollHist\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRollHist.GameNoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1960,17 +2036,17 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int GameNo {
+            public int Player_ID {
                 get {
                     try {
-                        return ((int)(this[this.tableRollHist.GameNoColumn]));
+                        return ((int)(this[this.tableRollHist.Player_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'GameNo\' in table \'RollHist\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Player ID\' in table \'RollHist\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRollHist.GameNoColumn] = value;
+                    this[this.tableRollHist.Player_IDColumn] = value;
                 }
             }
             
@@ -1992,29 +2068,24 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Player_ID {
+            public int Id {
                 get {
-                    try {
-                        return ((int)(this[this.tableRollHist.Player_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Player ID\' in table \'RollHist\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableRollHist.IdColumn]));
                 }
                 set {
-                    this[this.tableRollHist.Player_IDColumn] = value;
+                    this[this.tableRollHist.IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public byte Point {
+            public string Point {
                 get {
-                    try {
-                        return ((byte)(this[this.tableRollHist.PointColumn]));
+                    if (this.IsPointNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Point\' in table \'RollHist\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableRollHist.PointColumn]));
                     }
                 }
                 set {
@@ -2024,12 +2095,28 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public UserRow UserRow {
+            public int Total {
                 get {
-                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK__Game__Player ID__4BAC3F29"])));
+                    try {
+                        return ((int)(this[this.tableRollHist.TotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'RollHist\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Game__Player ID__4BAC3F29"]);
+                    this[this.tableRollHist.TotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public UserRow UserRow {
+                get {
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK__Game__Player ID__18EBB532"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Game__Player ID__18EBB532"]);
                 }
             }
             
@@ -2047,18 +2134,6 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsResultNull() {
-                return this.IsNull(this.tableRollHist.ResultColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetResultNull() {
-                this[this.tableRollHist.ResultColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPlayer_IDNull() {
                 return this.IsNull(this.tableRollHist.Player_IDColumn);
             }
@@ -2071,6 +2146,18 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsResultNull() {
+                return this.IsNull(this.tableRollHist.ResultColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetResultNull() {
+                this[this.tableRollHist.ResultColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPointNull() {
                 return this.IsNull(this.tableRollHist.PointColumn);
             }
@@ -2079,6 +2166,29 @@ namespace Craps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPointNull() {
                 this[this.tableRollHist.PointColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTotalNull() {
+                return this.IsNull(this.tableRollHist.TotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTotalNull() {
+                this[this.tableRollHist.TotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public RollRow[] GetRollRows() {
+                if ((this.Table.ChildRelations["FK__Roll__Game__3E1D39E11"] == null)) {
+                    return new RollRow[0];
+                }
+                else {
+                    return ((RollRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Roll__Game__3E1D39E11"])));
+                }
             }
         }
         
@@ -2109,10 +2219,10 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public byte Result {
+            public string Result {
                 get {
                     try {
-                        return ((byte)(this[this.tableGame.ResultColumn]));
+                        return ((string)(this[this.tableGame.ResultColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Result\' in table \'Game\' is DBNull.", e);
@@ -2125,10 +2235,10 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public byte Point {
+            public string Point {
                 get {
                     try {
-                        return ((byte)(this[this.tableGame.PointColumn]));
+                        return ((string)(this[this.tableGame.PointColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Point\' in table \'Game\' is DBNull.", e);
@@ -2152,10 +2262,10 @@ namespace Craps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public byte[] Time {
+            public System.DateTime Time {
                 get {
                     try {
-                        return ((byte[])(this[this.tableGame.TimeColumn]));
+                        return ((global::System.DateTime)(this[this.tableGame.TimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Time\' in table \'Game\' is DBNull.", e);
@@ -2170,10 +2280,10 @@ namespace Craps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public UserRow UserRow {
                 get {
-                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK__Game__Player ID__4BAC3F291"])));
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK__Game__Player ID__3F115E1A"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Game__Player ID__4BAC3F291"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Game__Player ID__3F115E1A"]);
                 }
             }
             
@@ -2216,11 +2326,11 @@ namespace Craps {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public RollRow[] GetRollRows() {
-                if ((this.Table.ChildRelations["FK__Roll__Game__4CA06362"] == null)) {
+                if ((this.Table.ChildRelations["FK__Roll__Game__3E1D39E1"] == null)) {
                     return new RollRow[0];
                 }
                 else {
-                    return ((RollRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Roll__Game__4CA06362"])));
+                    return ((RollRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Roll__Game__3E1D39E1"])));
                 }
             }
         }
@@ -3206,13 +3316,15 @@ SELECT Id, Game, Die1, Die2, Point, RollNum, PlayerID FROM Roll WHERE (Id = @Id)
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "RollHist";
+            tableMapping.ColumnMappings.Add("GameNo", "GameNo");
             tableMapping.ColumnMappings.Add("RollNum", "RollNum");
             tableMapping.ColumnMappings.Add("Die1", "Die1");
             tableMapping.ColumnMappings.Add("Die2", "Die2");
-            tableMapping.ColumnMappings.Add("GameNo", "GameNo");
-            tableMapping.ColumnMappings.Add("Result", "Result");
             tableMapping.ColumnMappings.Add("Player ID", "Player ID");
+            tableMapping.ColumnMappings.Add("Result", "Result");
+            tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Point", "Point");
+            tableMapping.ColumnMappings.Add("Total", "Total");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3229,10 +3341,11 @@ SELECT Id, Game, Die1, Die2, Point, RollNum, PlayerID FROM Roll WHERE (Id = @Id)
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Game.Id AS GameNo, CASE Game.Result WHEN '0' THEN 'Loss' WHEN '1' THEN 'Win' ELSE 'DNF' END AS Result, Game.Point, Roll.RollNum, 
-                         Roll.Die1, Roll.Die2, Game.[Player ID]
-FROM            Game RIGHT OUTER JOIN
-                         Roll ON Game.Id = Roll.Game";
+            this._commandCollection[0].CommandText = @"SELECT        Game.Id AS GameNo, COALESCE ('' + Game.Result, 'N/A') AS Result, COALESCE (' ' + Roll.Point, 'Not Set') AS Point, Roll.RollNum, Roll.Die1, Roll.Die2,  Roll.Die1 + Roll.Die2 AS Total,
+                         Game.[Player ID], Roll.Id
+FROM            Roll LEFT OUTER JOIN
+                         Game ON Game.Id = Roll.Game
+ORDER BY Roll.Id DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3390,40 +3503,43 @@ FROM            Game RIGHT OUTER JOIN
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Game] WHERE (([Id] = @Original_Id) AND ((@IsNull_Result = 1 AND [Res" +
-                "ult] IS NULL) OR ([Result] = @Original_Result)) AND ((@IsNull_Point = 1 AND [Poi" +
-                "nt] IS NULL) OR ([Point] = @Original_Point)) AND ([Player ID] = @Original_Player" +
-                "_ID))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Game] WHERE (([Id] = @Original_Id) AND ((@IsNull_Result = 1 AND [Result] IS NULL) OR ([Result] = @Original_Result)) AND ((@IsNull_Point = 1 AND [Point] IS NULL) OR ([Point] = @Original_Point)) AND ([Player ID] = @Original_Player_ID) AND ((@IsNull_Time = 1 AND [Time] IS NULL) OR ([Time] = @Original_Time)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Result", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Result", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Result", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Point", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Point", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Point", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Player_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Player ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Game] ([Result], [Point], [Player ID]) VALUES (@Result, @Point, @Pla" +
-                "yer_ID);\r\nSELECT Id, Result, Point, [Player ID] FROM Game WHERE (Id = SCOPE_IDEN" +
-                "TITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Game] ([Result], [Point], [Player ID], [Time]) VALUES (@Result" +
+                ", @Point, @Player_ID, @Time);\r\nSELECT Id, Result, Point, [Player ID], Time FROM " +
+                "Game WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Result", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Point", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Result", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Point", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Player_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Player ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Game] SET [Result] = @Result, [Point] = @Point, [Player ID] = @Player_ID WHERE (([Id] = @Original_Id) AND ((@IsNull_Result = 1 AND [Result] IS NULL) OR ([Result] = @Original_Result)) AND ((@IsNull_Point = 1 AND [Point] IS NULL) OR ([Point] = @Original_Point)) AND ([Player ID] = @Original_Player_ID));
-SELECT Id, Result, Point, [Player ID] FROM Game WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Game] SET [Result] = @Result, [Point] = @Point, [Player ID] = @Player_ID, [Time] = @Time WHERE (([Id] = @Original_Id) AND ((@IsNull_Result = 1 AND [Result] IS NULL) OR ([Result] = @Original_Result)) AND ((@IsNull_Point = 1 AND [Point] IS NULL) OR ([Point] = @Original_Point)) AND ([Player ID] = @Original_Player_ID) AND ((@IsNull_Time = 1 AND [Time] IS NULL) OR ([Time] = @Original_Time)));
+SELECT Id, Result, Point, [Player ID], Time FROM Game WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Result", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Point", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Result", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Point", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Player_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Player ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Result", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Result", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Result", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Result", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Point", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Point", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Point", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Point", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Player_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Player ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -3440,7 +3556,7 @@ SELECT Id, Result, Point, [Player ID] FROM Game WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Result, Point, [Player ID] FROM Game";
+            this._commandCollection[0].CommandText = "SELECT Id, Result, Point, [Player ID], Time FROM dbo.Game";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3501,25 +3617,33 @@ SELECT Id, Result, Point, [Player ID] FROM Game WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, global::System.Nullable<byte> Original_Result, global::System.Nullable<byte> Original_Point, int Original_Player_ID) {
+        public virtual int Delete(int Original_Id, string Original_Result, string Original_Point, int Original_Player_ID, global::System.Nullable<global::System.DateTime> Original_Time) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_Result.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((byte)(Original_Result.Value));
-            }
-            else {
+            if ((Original_Result == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_Point.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((byte)(Original_Point.Value));
-            }
             else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Result));
+            }
+            if ((Original_Point == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Point));
+            }
             this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Player_ID));
+            if ((Original_Time.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_Time.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3540,20 +3664,26 @@ SELECT Id, Result, Point, [Player ID] FROM Game WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<byte> Result, global::System.Nullable<byte> Point, int Player_ID) {
-            if ((Result.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((byte)(Result.Value));
-            }
-            else {
+        public virtual int Insert(string Result, string Point, int Player_ID, global::System.Nullable<global::System.DateTime> Time) {
+            if ((Result == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Point.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((byte)(Point.Value));
-            }
             else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Result));
+            }
+            if ((Point == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Point));
+            }
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Player_ID));
+            if ((Time.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Time.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3574,39 +3704,53 @@ SELECT Id, Result, Point, [Player ID] FROM Game WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<byte> Result, global::System.Nullable<byte> Point, int Player_ID, int Original_Id, global::System.Nullable<byte> Original_Result, global::System.Nullable<byte> Original_Point, int Original_Player_ID, int Id) {
-            if ((Result.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((byte)(Result.Value));
-            }
-            else {
+        public virtual int Update(string Result, string Point, int Player_ID, global::System.Nullable<global::System.DateTime> Time, int Original_Id, string Original_Result, string Original_Point, int Original_Player_ID, global::System.Nullable<global::System.DateTime> Original_Time, int Id) {
+            if ((Result == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Point.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((byte)(Point.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Result));
+            }
+            if ((Point == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Point));
+            }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Player_ID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
-            if ((Original_Result.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((byte)(Original_Result.Value));
+            if ((Time.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Time.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Original_Point.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((byte)(Original_Point.Value));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
+            if ((Original_Result == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Result));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Player_ID));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Id));
+            if ((Original_Point == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Point));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Player_ID));
+            if ((Original_Time.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_Time.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3627,8 +3771,8 @@ SELECT Id, Result, Point, [Player ID] FROM Game WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<byte> Result, global::System.Nullable<byte> Point, int Player_ID, int Original_Id, global::System.Nullable<byte> Original_Result, global::System.Nullable<byte> Original_Point, int Original_Player_ID) {
-            return this.Update(Result, Point, Player_ID, Original_Id, Original_Result, Original_Point, Original_Player_ID, Original_Id);
+        public virtual int Update(string Result, string Point, int Player_ID, global::System.Nullable<global::System.DateTime> Time, int Original_Id, string Original_Result, string Original_Point, int Original_Player_ID, global::System.Nullable<global::System.DateTime> Original_Time) {
+            return this.Update(Result, Point, Player_ID, Time, Original_Id, Original_Result, Original_Point, Original_Player_ID, Original_Time, Original_Id);
         }
     }
     

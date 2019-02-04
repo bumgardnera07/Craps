@@ -3,13 +3,12 @@ welcome to Craps:
 >> Enter your name or select a player from the list.
 -> Quit
 
-Player Menu:
- >> Displays History of Game Stats
- -> Play Craps
+Player Menu: 
+ >> Displays History of Game Stats, total wins losses
  -> Change Player
- -> Edit Name >> Welcome %Player%
- -> Clear History, with warning >> Welcome %Player%
- -> Clear Profile, with warning >> Change Player
+ -> Edit Name >> Open Player Management
+ -> Clear History, with warning
+ -> Delete Player, with warning
 
 Change Player
   >> Enter your name or select a player from the list. 
@@ -23,4 +22,14 @@ Play Craps
  -> Quit
 
 
+TODO
+
+Refactor
+Unit Tests/ UI Tests
+Comments
+
+Upload
+
+Things I could improve but won't:
+Game nos are unique to each player and reset when history is deleted
 

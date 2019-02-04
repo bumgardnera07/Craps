@@ -42,15 +42,13 @@
             this.txtAddName = new System.Windows.Forms.TextBox();
             this.lblChooseName = new System.Windows.Forms.Label();
             this.lblEnterName = new System.Windows.Forms.Label();
-            this.tableAdapterManager = new Craps.CrapsDataSetTableAdapters.TableAdapterManager();
-            this.gameTableAdapter = new Craps.CrapsDataSetTableAdapters.GameTableAdapter();
-            this.userTableAdapter = new Craps.CrapsDataSetTableAdapters.UserTableAdapter();
             this.gbPlayerMenu = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GameNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rollNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.die1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.die2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rollHistBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,10 +69,14 @@
             this.lblRollDie2 = new System.Windows.Forms.Label();
             this.lblRollDie1 = new System.Windows.Forms.Label();
             this.btnRollDice = new System.Windows.Forms.Button();
-            this.rollHistTableAdapter = new Craps.CrapsDataSetTableAdapters.RollHistTableAdapter();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.tableAdapterManager = new Craps.CrapsDataSetTableAdapters.TableAdapterManager();
+            this.gameTableAdapter = new Craps.CrapsDataSetTableAdapters.GameTableAdapter();
+            this.userTableAdapter = new Craps.CrapsDataSetTableAdapters.UserTableAdapter();
+            this.rollHistTableAdapter = new Craps.CrapsDataSetTableAdapters.RollHistTableAdapter();
             this.rollBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rollTableAdapter = new Craps.CrapsDataSetTableAdapters.RollTableAdapter();
+            this.gameBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbWelcomeScreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crapsDataSetBindingSource)).BeginInit();
@@ -84,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rollHistBindingSource)).BeginInit();
             this.gbPlayMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rollBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gbWelcomeScreen
@@ -111,7 +114,7 @@
             this.lsboxChooseName.Margin = new System.Windows.Forms.Padding(6);
             this.lsboxChooseName.Name = "lsboxChooseName";
             this.lsboxChooseName.Size = new System.Drawing.Size(296, 277);
-            this.lsboxChooseName.TabIndex = 16;
+            this.lsboxChooseName.TabIndex = 3;
             this.lsboxChooseName.DoubleClick += new System.EventHandler(this.LsboxChooseName_DoubleClick);
             // 
             // userBindingSource
@@ -134,7 +137,7 @@
             this.btnAddUser.Location = new System.Drawing.Point(230, 172);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(75, 23);
-            this.btnAddUser.TabIndex = 15;
+            this.btnAddUser.TabIndex = 2;
             this.btnAddUser.Text = "Let\'s Play!";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.AddUserButton_Click);
@@ -175,7 +178,7 @@
             this.txtAddName.Location = new System.Drawing.Point(9, 175);
             this.txtAddName.Name = "txtAddName";
             this.txtAddName.Size = new System.Drawing.Size(215, 20);
-            this.txtAddName.TabIndex = 14;
+            this.txtAddName.TabIndex = 1;
             this.txtAddName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtAddName_KeyDown);
             // 
             // lblChooseName
@@ -196,24 +199,9 @@
             this.lblEnterName.TabIndex = 12;
             this.lblEnterName.Text = "Enter your name:";
             // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GameTableAdapter = this.gameTableAdapter;
-            this.tableAdapterManager.RollTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Craps.CrapsDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UserTableAdapter = this.userTableAdapter;
-            // 
-            // gameTableAdapter
-            // 
-            this.gameTableAdapter.ClearBeforeFill = true;
-            // 
-            // userTableAdapter
-            // 
-            this.userTableAdapter.ClearBeforeFill = true;
-            // 
             // gbPlayerMenu
             // 
+            this.gbPlayerMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPlayerMenu.Controls.Add(this.dataGridView1);
             this.gbPlayerMenu.Controls.Add(this.btnChangePlayer);
             this.gbPlayerMenu.Controls.Add(this.btnClearHistory);
@@ -221,6 +209,9 @@
             this.gbPlayerMenu.Controls.Add(this.btnUpdateName);
             this.gbPlayerMenu.Enabled = false;
             this.gbPlayerMenu.Location = new System.Drawing.Point(323, 0);
+            this.gbPlayerMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.gbPlayerMenu.MaximumSize = new System.Drawing.Size(668, 158);
+            this.gbPlayerMenu.MinimumSize = new System.Drawing.Size(668, 158);
             this.gbPlayerMenu.Name = "gbPlayerMenu";
             this.gbPlayerMenu.Size = new System.Drawing.Size(668, 158);
             this.gbPlayerMenu.TabIndex = 2;
@@ -232,29 +223,39 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.timeDataGridViewTextBoxColumn,
+            this.GameNo,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.rollNumDataGridViewTextBoxColumn,
+            this.Total,
             this.die1DataGridViewTextBoxColumn,
             this.die2DataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.rollHistBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(117, 16);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(1);
+            this.dataGridView1.MaximumSize = new System.Drawing.Size(543, 125);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(543, 125);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.Size = new System.Drawing.Size(539, 125);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.Size = new System.Drawing.Size(543, 125);
             this.dataGridView1.TabIndex = 4;
             // 
-            // timeDataGridViewTextBoxColumn
+            // GameNo
             // 
-            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
-            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
-            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
-            this.timeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.GameNo.DataPropertyName = "GameNo";
+            this.GameNo.HeaderText = "GameNo";
+            this.GameNo.Name = "GameNo";
+            this.GameNo.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -262,6 +263,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Result";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -276,6 +278,15 @@
             this.rollNumDataGridViewTextBoxColumn.HeaderText = "RollNum";
             this.rollNumDataGridViewTextBoxColumn.Name = "rollNumDataGridViewTextBoxColumn";
             this.rollNumDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rollNumDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 60;
             // 
             // die1DataGridViewTextBoxColumn
             // 
@@ -283,13 +294,16 @@
             this.die1DataGridViewTextBoxColumn.HeaderText = "Die1";
             this.die1DataGridViewTextBoxColumn.Name = "die1DataGridViewTextBoxColumn";
             this.die1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.die1DataGridViewTextBoxColumn.Width = 60;
             // 
             // die2DataGridViewTextBoxColumn
             // 
             this.die2DataGridViewTextBoxColumn.DataPropertyName = "Die2";
             this.die2DataGridViewTextBoxColumn.HeaderText = "Die2";
+            this.die2DataGridViewTextBoxColumn.MinimumWidth = 50;
             this.die2DataGridViewTextBoxColumn.Name = "die2DataGridViewTextBoxColumn";
             this.die2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.die2DataGridViewTextBoxColumn.Width = 60;
             // 
             // rollHistBindingSource
             // 
@@ -299,47 +313,51 @@
             // 
             // btnChangePlayer
             // 
+            this.btnChangePlayer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnChangePlayer.Location = new System.Drawing.Point(6, 23);
             this.btnChangePlayer.Name = "btnChangePlayer";
             this.btnChangePlayer.Size = new System.Drawing.Size(105, 24);
-            this.btnChangePlayer.TabIndex = 3;
+            this.btnChangePlayer.TabIndex = 4;
             this.btnChangePlayer.Text = "Change Player";
             this.btnChangePlayer.UseVisualStyleBackColor = true;
             this.btnChangePlayer.Click += new System.EventHandler(this.BtnChangePlayer_Click);
             // 
             // btnClearHistory
             // 
+            this.btnClearHistory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnClearHistory.Location = new System.Drawing.Point(6, 83);
             this.btnClearHistory.Name = "btnClearHistory";
             this.btnClearHistory.Size = new System.Drawing.Size(105, 24);
-            this.btnClearHistory.TabIndex = 2;
+            this.btnClearHistory.TabIndex = 6;
             this.btnClearHistory.Text = "Clear History";
             this.btnClearHistory.UseVisualStyleBackColor = true;
             this.btnClearHistory.Click += new System.EventHandler(this.BtnClearHistory_Click);
             // 
             // btnDeletePlayer
             // 
+            this.btnDeletePlayer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDeletePlayer.Location = new System.Drawing.Point(6, 113);
             this.btnDeletePlayer.Name = "btnDeletePlayer";
             this.btnDeletePlayer.Size = new System.Drawing.Size(105, 24);
-            this.btnDeletePlayer.TabIndex = 1;
+            this.btnDeletePlayer.TabIndex = 7;
             this.btnDeletePlayer.Text = "Delete Player";
             this.btnDeletePlayer.UseVisualStyleBackColor = true;
             this.btnDeletePlayer.Click += new System.EventHandler(this.BtnDeletePlayer_Click);
             // 
             // btnUpdateName
             // 
+            this.btnUpdateName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnUpdateName.Location = new System.Drawing.Point(6, 53);
             this.btnUpdateName.Name = "btnUpdateName";
             this.btnUpdateName.Size = new System.Drawing.Size(105, 24);
-            this.btnUpdateName.TabIndex = 0;
+            this.btnUpdateName.TabIndex = 5;
             this.btnUpdateName.Text = "Change Name";
             this.btnUpdateName.UseVisualStyleBackColor = true;
             this.btnUpdateName.Click += new System.EventHandler(this.BtnUpdateName_Click);
             // 
             // gbPlayMenu
             // 
-            this.gbPlayMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbPlayMenu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.gbPlayMenu.Controls.Add(this.lblLossValue);
             this.gbPlayMenu.Controls.Add(this.lblWinValue);
             this.gbPlayMenu.Controls.Add(this.lblDieTotalValue);
@@ -354,6 +372,7 @@
             this.gbPlayMenu.Controls.Add(this.btnRollDice);
             this.gbPlayMenu.Enabled = false;
             this.gbPlayMenu.Location = new System.Drawing.Point(323, 164);
+            this.gbPlayMenu.Margin = new System.Windows.Forms.Padding(0);
             this.gbPlayMenu.MaximumSize = new System.Drawing.Size(670, 421);
             this.gbPlayMenu.MinimumSize = new System.Drawing.Size(670, 421);
             this.gbPlayMenu.Name = "gbPlayMenu";
@@ -485,14 +504,10 @@
             this.btnRollDice.Location = new System.Drawing.Point(18, 34);
             this.btnRollDice.Name = "btnRollDice";
             this.btnRollDice.Size = new System.Drawing.Size(139, 104);
-            this.btnRollDice.TabIndex = 0;
+            this.btnRollDice.TabIndex = 8;
             this.btnRollDice.Text = "Roll Dice!";
             this.btnRollDice.UseVisualStyleBackColor = true;
             this.btnRollDice.Click += new System.EventHandler(this.BtnRollDice_Click);
-            // 
-            // rollHistTableAdapter
-            // 
-            this.rollHistTableAdapter.ClearBeforeFill = true;
             // 
             // btnQuit
             // 
@@ -505,6 +520,26 @@
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.GameTableAdapter = this.gameTableAdapter;
+            this.tableAdapterManager.RollTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Craps.CrapsDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UserTableAdapter = this.userTableAdapter;
+            // 
+            // gameTableAdapter
+            // 
+            this.gameTableAdapter.ClearBeforeFill = true;
+            // 
+            // userTableAdapter
+            // 
+            this.userTableAdapter.ClearBeforeFill = true;
+            // 
+            // rollHistTableAdapter
+            // 
+            this.rollHistTableAdapter.ClearBeforeFill = true;
+            // 
             // rollBindingSource
             // 
             this.rollBindingSource.DataMember = "Roll";
@@ -513,6 +548,11 @@
             // rollTableAdapter
             // 
             this.rollTableAdapter.ClearBeforeFill = true;
+            // 
+            // gameBindingSource
+            // 
+            this.gameBindingSource.DataMember = "Game";
+            this.gameBindingSource.DataSource = this.crapsDataSet;
             // 
             // FormMainPage
             // 
@@ -544,6 +584,7 @@
             this.gbPlayMenu.ResumeLayout(false);
             this.gbPlayMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rollBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,11 +618,6 @@
         private CrapsDataSetTableAdapters.RollHistTableAdapter rollHistTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rollNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn die1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn die2DataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource crapsDataSetBindingSource;
         private System.Windows.Forms.Label lblRollDie2;
         private System.Windows.Forms.Label lblRollDie1;
@@ -599,5 +635,13 @@
         private System.Windows.Forms.Button btnQuit;
         private System.Windows.Forms.BindingSource rollBindingSource;
         private CrapsDataSetTableAdapters.RollTableAdapter rollTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GameNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rollNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn die1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn die2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource gameBindingSource;
     }
 }

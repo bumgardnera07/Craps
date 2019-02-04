@@ -27,5 +27,10 @@ namespace Craps
         {
             this.Close();
         }
+
+        private void FormConfirm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

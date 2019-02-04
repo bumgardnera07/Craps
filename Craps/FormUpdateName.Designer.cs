@@ -118,6 +118,7 @@
             this.Name = "FormUpdateName";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Update Name";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FormUpdateName_Load);

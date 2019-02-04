@@ -81,7 +81,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormConfirm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Are You Sure?";
+            this.Load += new System.EventHandler(this.FormConfirm_Load);
             this.ResumeLayout(false);
 
         }

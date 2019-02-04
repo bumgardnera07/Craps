@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,15 +34,15 @@ namespace Craps
 
         private void BtnAcceptNameUpdate_Click(object sender, EventArgs e)
         {
-            string userName = TextUpdateName.Text;
+            string userName = Craps.FormMainPage.CleanInput(TextUpdateName.Text);
             if (crapsDataSet.User.Select("Name = '" + userName + "'").Length != 0)
             {
                 MessageBox.Show("That player already exists.");
             }
             else
-            {
+            {                
                 CrapsDataSet.UserRow userRow = crapsDataSet.User.FindById(GameVariables.UserID);
-                userRow.Name = TextUpdateName.Text;
+                userRow.Name = userName.ToUpper();
                 try
                 {
                     userTableAdapter.Update(crapsDataSet);

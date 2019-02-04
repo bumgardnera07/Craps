@@ -8,12 +8,19 @@
         {
         }
 
-        partial class Rolls_DataDataTable
+        partial class RollHistDataTable
         {
         }
 
         partial class UserDataTable
         {
         }
+    }
+}
+
+namespace Craps.CrapsDataSetTableAdapters {
+    
+    
+    public partial class RollHistTableAdapter {
     }
 }

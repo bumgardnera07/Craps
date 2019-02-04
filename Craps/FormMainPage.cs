@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +10,7 @@ namespace Craps
 {
     public partial class FormMainPage : Form
     {
+        internal static HttpClient client = new HttpClient();
         public FormMainPage()
         {
             InitializeComponent();
@@ -31,27 +30,34 @@ namespace Craps
 
         private void AddUserButton_Click(object sender, EventArgs e)
         {
-            string userName = txtAddName.Text;
-            if (crapsDataSet.User.Select("Name = '" + userName + "'").Length != 0)
+            string userName = CleanInput(txtAddName.Text);
+            if (!string.IsNullOrWhiteSpace(userName))
             {
-                MessageBox.Show("That player already exists. Please enter a new player or select your name from the list.");
+                if (crapsDataSet.User.Select("Name = '" + userName + "'").Length != 0)
+                {
+                    MessageBox.Show("That player already exists. Please enter a new player or select your name from the list.");
+                }
+                else
+                {
+                    CrapsDataSet.UserRow userRow = crapsDataSet.User.NewUserRow();
+                    userRow.Name = userName.ToUpper();
+                    crapsDataSet.User.Rows.Add(userRow);
+                    try
+                    {
+                        userTableAdapter.Insert(userName);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Insert Failed");
+                    }
+                    userTableAdapter.Fill(crapsDataSet.User);
+                    PlayerActivate(userName);
+                }
             }
             else
             {
-                CrapsDataSet.UserRow userRow = crapsDataSet.User.NewUserRow();
-                userRow.Name = txtAddName.Text;
-                crapsDataSet.User.Rows.Add(userRow);
-                try
-                {
-                    userTableAdapter.Insert(userName);
-                }
-                catch 
-                {
-                    MessageBox.Show("Insert Failed");
-                }
-                userTableAdapter.Fill(crapsDataSet.User);
-                PlayerActivate(userName);
-            }           
+                MessageBox.Show("Your name cannot be empty.");
+            }
 
         }
 
@@ -70,7 +76,7 @@ namespace Craps
 
         private void PlayerActivate(string userName)
         {
-            GameVariables.UserID = (int) crapsDataSet.User.Select("Name = '" + userName + "'")[0]["Id"];
+            GameVariables.UserID = (int)crapsDataSet.User.Select("Name = '" + userName + "'")[0]["Id"];
             rollHistBindingSource.Filter = "[Player ID] = " + GameVariables.UserID;
             rollHistTableAdapter.Fill(crapsDataSet.RollHist);
             txtAddName.Text = "";
@@ -95,6 +101,11 @@ namespace Craps
             {
                 MessageBox.Show("Insert Failed");
             }
+            GameVariables.Round = 1;
+            lblWinValue.Text = String.Join(" or ", GameVariables.Wins);
+            lblLossValue.Text = String.Join(" or ", GameVariables.Loses);
+            GameVariables.PointWin = 0;
+            rollHistTableAdapter.Fill(crapsDataSet.RollHist);
             gameTableAdapter.Fill(crapsDataSet.Game);
         }
 
@@ -117,7 +128,7 @@ namespace Craps
             FormUpdateName formUpdateName = new FormUpdateName();
             formUpdateName.FormClosed += new FormClosedEventHandler(UpdateForm_Closed);
             formUpdateName.Show();
-            
+
         }
 
         private void UpdateForm_Closed(object sender, FormClosedEventArgs e)
@@ -131,6 +142,7 @@ namespace Craps
             if (formConfirm.ShowDialog() == DialogResult.OK)
             {
                 ClearPlayerHistory();
+                NewGame();
             }
         }
 
@@ -183,27 +195,28 @@ namespace Craps
         private void DeletePlayer()
         {
             CrapsDataSet.UserRow userRow = crapsDataSet.User.FindById(GameVariables.UserID);
+            ClearPlayerHistory();
             userRow.Delete();
             userTableAdapter.Update(crapsDataSet.User);
             userTableAdapter.Fill(crapsDataSet.User);
             rollHistTableAdapter.Fill(crapsDataSet.RollHist);
         }
 
-        private void BtnRollDice_Click(object sender, EventArgs e)
+        private async void BtnRollDice_Click(object sender, EventArgs e)
         {
-            int[] rolls = RollDice();
+            int[] rolls = await RollDice();
             lblOutcome.Visible = true;
             PopulateRolls(rolls);
             if (GameOver() == 0)
             {
                 lblOutcome.Text = "You Lost :(";
-                ResetGame(0);
+                ResetGame("Loss");
             }
-            else if (GameOver()== 1)
+            else if (GameOver() == 1)
             {
                 lblOutcome.Text = "You Win!";
                 GameVariables.Round = 1;
-                ResetGame(1);
+                ResetGame("Win");
             }
             else
             {
@@ -216,16 +229,16 @@ namespace Craps
             }
         }
 
-        private void ResetGame(int winorlose)
+        private void ResetGame(string winorlose)
         {
-            int currentGame = (int)crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC")[0]["Id"]; ;
+            int currentGame = (crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC").Count() > 0) ? (int)crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC")[0]["Id"] : 0;
             CrapsDataSet.GameRow gameRow = crapsDataSet.Game.FindById(currentGame);
             gameRow["Result"] = winorlose;
+            gameRow["Time"] = DateTime.Now;
             if (GameVariables.PointWin > 0)
             {
-                gameRow["Point"] = GameVariables.PointWin;
+                gameRow["Point"] = GameVariables.PointWin.ToString();
             }
-
             gameTableAdapter.Update(crapsDataSet.Game);
             try
             {
@@ -233,13 +246,9 @@ namespace Craps
             }
             catch
             {
-                MessageBox.Show("Insert Failed");
+                MessageBox.Show(currentGame.ToString());
             }
             gameTableAdapter.Fill(crapsDataSet.Game);
-            GameVariables.Round = 1;
-            lblWinValue.Text = String.Join(" or ", GameVariables.Wins);
-            lblLossValue.Text = String.Join(" or ", GameVariables.Loses);
-            GameVariables.PointWin = 0;
             NewGame();
         }
 
@@ -292,7 +301,7 @@ namespace Craps
             lblDieTotalValue.Text = (rolls[0] + rolls[1]).ToString();
             ShowDice();
 
-            int currentGame = (int) crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC")[0]["Id"];
+            int currentGame = (crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC").Count() > 0) ? (int)crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC")[0]["Id"] : 0; // this breaks if you delete history i nthe middle of a game
             CrapsDataSet.RollRow rollRow = crapsDataSet.Roll.NewRollRow();
             rollRow["PlayerID"] = GameVariables.UserID;
             rollRow["Game"] = currentGame;
@@ -301,7 +310,7 @@ namespace Craps
             rollRow["RollNum"] = GameVariables.Round;
             if (GameVariables.PointWin != 0)
             {
-                rollRow["Point"] = GameVariables.PointWin;
+                rollRow["Point"] = GameVariables.PointWin.ToString();
             }
 
             crapsDataSet.Roll.AddRollRow(rollRow);
@@ -314,6 +323,7 @@ namespace Craps
                 MessageBox.Show("Insert Failed");
             }
             rollTableAdapter.Fill(crapsDataSet.Roll);
+            rollHistTableAdapter.Fill(crapsDataSet.RollHist);
         }
 
         private void ShowDice()
@@ -326,10 +336,60 @@ namespace Craps
             lblRollTotal.Visible = true;
         }
 
-        private int[] RollDice()
+        private async Task<int[]> RollDice()
         {
-            Random rnd = new Random();
-            return new int[] { rnd.Next(1, 7), rnd.Next(1, 7) };
+
+
+            Dice dice = await GetDiceAsync("https://rolz.org/api/?2d6.json");
+            if (dice != null)
+            {
+                int[] diceValues = new int[2];
+                diceValues[0] = Convert.ToInt32(Regex.Match(dice.details, @"(?<=\()\d").ToString());
+                diceValues[1] = Convert.ToInt32(Regex.Match(dice.details, @"(?<=\+)\d").ToString());
+                return diceValues;
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed. Generating Rolls Locally");
+                Random rnd = new Random();
+                return new int[] { rnd.Next(1, 7), rnd.Next(1, 7) };
+            }
+        }
+
+        internal static string CleanInput(string strIn)
+        {
+            // Replace invalid characters with empty strings.
+            try
+            {
+                return Regex.Replace(strIn, @"[^\w\.@-]", "",
+                                     RegexOptions.None, TimeSpan.FromSeconds(1.5));
+            }
+            // If we timeout when replacing invalid characters, 
+            // we should return Empty.
+            catch (RegexMatchTimeoutException)
+            {
+                return String.Empty;
+            }
+        }
+
+        internal static async Task<Dice> GetDiceAsync(string path)
+        {
+            try
+            {
+                Dice dice = null;
+                HttpResponseMessage response = await client.GetAsync(path);
+                if (response.IsSuccessStatusCode)
+                {
+                    dice = await response.Content.ReadAsAsync<Dice>();
+                }
+                return dice;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+
         }
     }
 }
