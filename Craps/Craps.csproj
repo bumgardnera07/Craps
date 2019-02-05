@@ -83,9 +83,6 @@
     <Compile Include="GameController.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="PlayerController.cs" />
-    <Compile Include="CrapsDataSet.cs">
-      <DependentUpon>CrapsDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="CrapsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

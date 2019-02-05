@@ -610,11 +610,6 @@
         private System.Windows.Forms.Button btnClearHistory;
         private System.Windows.Forms.Button btnDeletePlayer;
         private System.Windows.Forms.Button btnUpdateName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resultDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pointDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn timeDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblLoseCondition;
         private System.Windows.Forms.Label lblWinCondition;
         private System.Windows.Forms.DataGridViewTextBoxColumn GameNo;
