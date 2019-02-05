@@ -1,6 +1,6 @@
 ﻿namespace Craps
 {
-    internal static class GameVariables
+    public static class GameVariables
     {
         private static readonly int[] _wins = new int[2] { 7, 11 };
         private static readonly int[] _loses = new int[3] { 2, 3, 12 };

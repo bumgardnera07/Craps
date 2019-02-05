@@ -181,6 +181,7 @@
             // txtAddName
             // 
             this.txtAddName.Location = new System.Drawing.Point(9, 175);
+            this.txtAddName.MaxLength = 25;
             this.txtAddName.Name = "txtAddName";
             this.txtAddName.Size = new System.Drawing.Size(215, 20);
             this.txtAddName.TabIndex = 1;
@@ -623,8 +624,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn die1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn die2DataGridViewTextBoxColumn;
-        internal CrapsDataSet crapsDataSet;
-        internal CrapsDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         internal CrapsDataSetTableAdapters.GameTableAdapter gameTableAdapter;
         internal CrapsDataSetTableAdapters.UserTableAdapter userTableAdapter;
         internal System.Windows.Forms.BindingSource rollHistBindingSource;
@@ -641,14 +640,16 @@
         internal System.Windows.Forms.ListBox lsboxChooseName;
         internal System.Windows.Forms.TextBox txtAddName;
         internal System.Windows.Forms.Button btnRollDice;
-        internal System.Windows.Forms.Label lblDie1Value;
-        internal System.Windows.Forms.Label lblOutcome;
-        internal System.Windows.Forms.Label lblLossValue;
-        internal System.Windows.Forms.Label lblWinValue;
-        internal System.Windows.Forms.Label lblDieTotalValue;
-        internal System.Windows.Forms.Label lblDie2Value;
         internal System.Windows.Forms.Label lblRollDie2;
         internal System.Windows.Forms.Label lblRollDie1;
         internal System.Windows.Forms.Label lblRollTotal;
+        public CrapsDataSet crapsDataSet;
+        public System.Windows.Forms.Label lblDieTotalValue;
+        public System.Windows.Forms.Label lblDie1Value;
+        public System.Windows.Forms.Label lblOutcome;
+        public System.Windows.Forms.Label lblLossValue;
+        public System.Windows.Forms.Label lblWinValue;
+        public System.Windows.Forms.Label lblDie2Value;
+        public CrapsDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

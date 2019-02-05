@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Craps
 {
-    internal class GameController
+    public class GameController
     {
-        internal static void NewGame(FormMainPage form)
+        public static void NewGame(FormMainPage form)
         {
             CrapsDataSet.GameRow gameRow = form.crapsDataSet.Game.NewGameRow();
             gameRow["Player Id"] = GameVariables.UserID;
@@ -15,9 +15,9 @@ namespace Craps
             {
                 form.gameTableAdapter.Update(form.crapsDataSet.Game);
             }
-            catch
+            catch (Exception e)
             {
-                MessageBox.Show("Insert Failed");
+                MessageBox.Show(e.Message);
             }
             GameVariables.Round = 1;
             form.lblWinValue.Text = string.Join(" or ", GameVariables.Wins);
@@ -27,7 +27,7 @@ namespace Craps
             form.gameTableAdapter.Fill(form.crapsDataSet.Game);
         }
 
-        internal static void UpdateGameState(FormMainPage form)
+        public static void UpdateGameState(FormMainPage form)
         {
             if (GameOver(form) == 0)
             {
@@ -37,7 +37,6 @@ namespace Craps
             else if (GameOver(form) == 1)
             {
                 form.lblOutcome.Text = "You Win!";
-                GameVariables.Round = 1;
                 ResetGame("Win", form);
             }
             else
@@ -54,7 +53,9 @@ namespace Craps
 
         private static void ResetGame(string winorlose, FormMainPage form)
         {
-            int currentGame = (form.crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC").Count() > 0) ? (int)form.crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC")[0]["Id"] : 0;
+            int currentGame = (form.crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC").Count() > 0) 
+                                ? (int)form.crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC")[0]["Id"] 
+                                : 0;
             CrapsDataSet.GameRow gameRow = form.crapsDataSet.Game.FindById(currentGame);
             gameRow["Result"] = winorlose;
             gameRow["Time"] = DateTime.Now;

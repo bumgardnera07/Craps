@@ -7,8 +7,8 @@ using System.Windows.Forms;
 
 namespace Craps
 {
-    internal class DiceController
-    {
+    public class DiceController
+    {   // Following properties for rolz API .json format
         public string input{ get; set; }
         public string result { get; set; }
         public string details { get; set; }
@@ -19,7 +19,7 @@ namespace Craps
 
 
 
-        internal static void PopulateRolls(int[] rolls, FormMainPage form, HttpClient client)
+        public static void PopulateRolls(int[] rolls, FormMainPage form)
         {
             form.lblOutcome.Visible = true;
             form.lblDie1Value.Text = rolls[0].ToString();
@@ -27,7 +27,7 @@ namespace Craps
             form.lblDieTotalValue.Text = (rolls[0] + rolls[1]).ToString();
             ShowDice(form);
 
-            int currentGame = (form.crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC").Count() > 0) 
+            int currentGame = (form.crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID).Count() > 0) 
                                 ? (int)form.crapsDataSet.Game.Select("[Player ID] = " + GameVariables.UserID, "Id DESC")[0]["Id"] 
                                 : 0;
             CrapsDataSet.RollRow rollRow = form.crapsDataSet.Roll.NewRollRow();
@@ -47,9 +47,9 @@ namespace Craps
             {
                 form.rollTableAdapter.Update(form.crapsDataSet.Roll);
             }
-            catch
+            catch (Exception e)
             {
-                MessageBox.Show("Insert Failed");
+                MessageBox.Show(e.Message);
             }
             form.rollTableAdapter.Fill(form.crapsDataSet.Roll);
             form.rollHistTableAdapter.Fill(form.crapsDataSet.RollHist);
@@ -83,7 +83,7 @@ namespace Craps
             }
         }
 
-        internal static async Task<DiceController> GetDiceAsync(string path, FormMainPage form, HttpClient httpClient)
+        private static async Task<DiceController> GetDiceAsync(string path, FormMainPage form, HttpClient httpClient)
         {
             try
             {

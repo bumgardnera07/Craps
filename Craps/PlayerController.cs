@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace Craps
 {
-    class PlayerController
+    public class PlayerController
     {
 
-        internal static void ClearPlayerHistory(FormMainPage form)
+        public static void ClearPlayerHistory(FormMainPage form)
         {
             ClearPlayerRolls(form);
             ClearPlayerGames(form);
@@ -43,7 +43,7 @@ namespace Craps
             form.rollHistTableAdapter.Fill(form.crapsDataSet.RollHist);
         }
 
-        internal static void DeletePlayer(FormMainPage form)
+        public static void DeletePlayer(FormMainPage form)
         {
             CrapsDataSet.UserRow userRow = form.crapsDataSet.User.FindById(GameVariables.UserID);
             ClearPlayerHistory(form);
@@ -53,7 +53,7 @@ namespace Craps
             form.rollHistTableAdapter.Fill(form.crapsDataSet.RollHist);
         }
 
-        internal static string CleanUserName(string strIn)
+        private static string CleanUserName(string strIn)
         {
             // Replace invalid characters with empty strings.
             try
@@ -69,7 +69,7 @@ namespace Craps
         }
 
 
-        internal static void AddAndActivateUser(string inputName, FormMainPage form)
+        public static void AddAndActivatePlayer(string inputName, FormMainPage form)
         {
             string userName = CleanUserName(inputName);
             if (!string.IsNullOrWhiteSpace(userName))
@@ -87,9 +87,9 @@ namespace Craps
                     {
                         form.userTableAdapter.Insert(userName.ToUpper());
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        MessageBox.Show("Insert Failed");    //this app uses localdb, but if this were a real server, we'd want more handling here
+                        MessageBox.Show(e.Message);  
                     }
                     form.userTableAdapter.Fill(form.crapsDataSet.User);
                     ViewController.PlayerActivate(userName, form);
@@ -101,7 +101,7 @@ namespace Craps
             }
         }
 
-        internal static void UpdateUser(string inputName, FormMainPage form)
+        public static void UpdateUser(string inputName, FormMainPage form)
         {
             string userName = CleanUserName(inputName);
             if (form.crapsDataSet.User.Select("Name = '" + userName + "'").Length != 0)
@@ -117,9 +117,9 @@ namespace Craps
                     form.userTableAdapter.Update(form.crapsDataSet);
                     form.userTableAdapter.Fill(form.crapsDataSet.User);
                 }
-                catch
+                catch (Exception e)
                 {
-                    MessageBox.Show("Insert Failed");  //if this were a real DB, add more handling here
+                    MessageBox.Show(e.Message); 
                 }
 
             }

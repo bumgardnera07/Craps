@@ -66,6 +66,7 @@
             // TextUpdateName
             // 
             this.TextUpdateName.Location = new System.Drawing.Point(12, 28);
+            this.TextUpdateName.MaxLength = 25;
             this.TextUpdateName.Name = "TextUpdateName";
             this.TextUpdateName.Size = new System.Drawing.Size(243, 20);
             this.TextUpdateName.TabIndex = 1;

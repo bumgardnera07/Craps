@@ -26,7 +26,7 @@ namespace Craps
 
         private void AddUserButton_Click(object sender, EventArgs e)
         {
-            PlayerController.AddAndActivateUser(txtAddName.Text, this);
+            PlayerController.AddAndActivatePlayer(txtAddName.Text, this);
         }
 
         private void TxtAddName_KeyDown(object sender, KeyEventArgs e)
@@ -85,7 +85,7 @@ namespace Craps
         private async void BtnRollDice_Click(object sender, EventArgs e)
         {
             int[] rolls = await DiceController.RollDice(this, client);
-            DiceController.PopulateRolls(rolls, this, client);
+            DiceController.PopulateRolls(rolls, this);
             GameController.UpdateGameState(this);
         }
     }

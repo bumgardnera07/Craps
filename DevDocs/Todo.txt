@@ -1,0 +1,20 @@
+
+TO-DO:
+
+UI Tests/ ASync Tests
+
+Stupid Visual GroupBox bug
+
+Pass datatable from main form to child forms so only one instance of data tables is modified throughout the whole program
+
+Game nos are unique to each player and reset when history is deleted
+
+Could do so with this Query, but Rank is not supported
+
+/*
+ SELECT       RANK() OVER (ORDER BY Game.ID ASC) AS GameNo, COALESCE ('' + Game.Result, 'N/A') AS Result, COALESCE (' ' + Roll.Point, 'Not Set') AS Point, Roll.RollNum, Roll.Die1, Roll.Die2,  Roll.Die1 + Roll.Die2 AS Total,
+                         Game.[Player ID], Roll.Id
+FROM            Roll LEFT OUTER JOIN
+                         Game ON Game.Id = Roll.Game
+ORDER BY Roll.Id DESC
+*/
