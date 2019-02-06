@@ -21,6 +21,7 @@ then that sum becomes the player’s “point”. Once the point has been set, t
 the point. When the point is reset, the game starts over, and the next roll of the dice acts like the first roll of the dice again.
 
 - Data
+
 The following data is stored in the database:
 USER Table: The player’s ID and Name
 GAME Table: Game ID , Point(if set), Win/Lose/Null result, Game Time, Player ID
