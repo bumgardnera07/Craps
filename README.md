@@ -29,7 +29,7 @@ ROLL Table: Roll ID, Game Number, Die1 Roll, Die2 Roll, Point (if set), Roll Num
 -Roll Number here is the sequence of the roll within the context of the current game
 ROLLHIST Table: This is a join table for rolls and games that allows us to review a history of rolls across games. We filter it with the Id of the current Player.
 
-Player can:
+-Player can:
 - create/edit/delete player profile.
 - select previously created profile, and continue playing. (a new game will be started if the player left in the middle of a previous game)
 - clear their own game history.
