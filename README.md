@@ -29,7 +29,7 @@ ROLL Table: Roll ID, Game Number, Die1 Roll, Die2 Roll, Point (if set), Roll Num
 -Roll Number here is the sequence of the roll within the context of the current game
 ROLLHIST Table: This is a join table for rolls and games that allows us to review a history of rolls across games. We filter it with the Id of the current Player.
 
-##Player can:
+## Player can:
 - create/edit/delete player profile.
 - select previously created profile, and continue playing. (a new game will be started if the player left in the middle of a previous game)
 - clear their own game history.
@@ -38,7 +38,7 @@ ROLLHIST Table: This is a join table for rolls and games that allows us to revie
 This solution uses and HTTPClient to call rolz.API for returning random die rolls. The solution serializes the entire JSON from the API call into an object, but only uses the 'details' die rolls for displaying die amounts.
 If the game can't connect to the API it just generates the die rolls locally with Math.Random.
 
-##Known Bugs
+## Known Bugs
 
 - There is a weird visual bug I haven't been able to nail down, where the 'Let's Play Craps' Group Box will shift up into the middle of the data table above it. I haven't figured out what causes this bug, but if you see it happen let me know what you did!
 
